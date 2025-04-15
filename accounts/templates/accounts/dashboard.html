@@ -1,0 +1,71 @@
+{% extends 'accounts/base.html' %}
+<!-- Start Dashboard -->
+{% block content %}
+<div class="dashboard content">
+  <div class="container">
+    <!-- Start Stats -->
+    {% include 'accounts/stats.html' %}
+    <!-- End Stats -->
+
+    <!-- Start Customer & Orders -->
+    <div class="data">
+      <div class="customers-section">
+        <h3>Customers:</h3>
+        <hr />
+        <div class="records-card">
+          <button>Create Customer</button>
+          <table class="records-table">
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Orders</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for customer in customers %}
+              <tr>
+                <td>{{customer.name}}</td>
+                <td>0</td>
+              </tr>
+              {%endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="orders-section">
+        <h3>Last 5 orders:</h3>
+        <hr />
+        <div class="records-card">
+          <button>Create order</button>
+          <table class="records-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Date Orderd</th>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in last_five_orders %}
+              <tr>
+                <td>{{order.product.name}}</td>
+                <td>{{order.date_created}}</td>
+                <td>{{order.status}}</td>
+                <td><a href="">Update</a></td>
+                <td><a href="">Delete</a></td>
+              </tr>
+          {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- End Customer & Orders -->
+  </div>
+</div>
+
+<!-- Start  -->
+{% endblock %}
+<!-- End Dashboard -->

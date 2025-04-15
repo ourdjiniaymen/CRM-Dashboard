@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# If you use WhiteNoise for static files
+/static/
+
+# Virtualenv
+venv/
+env/
+ENV/
+.venv/
+.venv.bak/
+pip-log.txt
+
+# Environment variables
+.env
+.env.*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage and testing
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+htmlcov/
+.coverage.*
+
+# Migrations (optional, if you don't want to version control them initially)
+# ** Comment out if you want to include them in version control
+# */migrations/
+# !*/migrations/__init__.py
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# Pyre
+.pyre/
+
+# PyCharm
+*.iml
