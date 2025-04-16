@@ -13,10 +13,11 @@
         <h3>Customers:</h3>
         <hr />
         <div class="records-card">
-          <button>Create Customer</button>
+          <a href="" class="create">Create Customer</a>
           <table class="records-table">
             <thead>
               <tr>
+                <th></th>
                 <th>Customer</th>
                 <th>Orders</th>
               </tr>
@@ -24,6 +25,7 @@
             <tbody>
               {% for customer in customers %}
               <tr>
+                <td class="btn view"><a href="{% url 'customer' customer.id %}">View</a></td>
                 <td>{{customer.name}}</td>
                 <td>0</td>
               </tr>
@@ -36,7 +38,7 @@
         <h3>Last 5 orders:</h3>
         <hr />
         <div class="records-card">
-          <button>Create order</button>
+          <a href="{% url 'create_order' %}" class="create">Create order</a>
           <table class="records-table">
             <thead>
               <tr>
@@ -53,8 +55,8 @@
                 <td>{{order.product.name}}</td>
                 <td>{{order.date_created}}</td>
                 <td>{{order.status}}</td>
-                <td><a href="">Update</a></td>
-                <td><a href="">Delete</a></td>
+                <td class="btn update"><a href="{% url 'update_order' order.id%}">Update</a></td>
+                <td class="btn delete"><a href="">Delete</a></td>
               </tr>
           {% endfor %}
             </tbody>

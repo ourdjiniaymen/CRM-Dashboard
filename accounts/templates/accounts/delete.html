@@ -1,0 +1,11 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<!-- Start confirmation form -->
+ <form action="" method="POST">
+  <p>Are you sure you want to delete {{item}}</p>
+  <a href="{% url 'home' %}">Cancel</a>
+  <input type="submit" value="Confirm">
+ </form>
+<!-- End confirmation form -->
+{% endblock %}

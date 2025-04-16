@@ -6,7 +6,8 @@ import uuid
 class Customer(models.Model):
     id              = models.UUIDField(primary_key = True, default = uuid.uuid4, editable = False)
     name            = models.CharField(max_length = 200)
-    email           = models.CharField(max_length = 200, null = True)
+    email           = models.CharField(max_length = 200, null = True, blank=True)
+    phone            = models.CharField(max_length = 200, null = True, blank=True)
     date_created    = models.DateTimeField(auto_now_add = True)
     date_updated    = models.DateTimeField(auto_now=True)
 

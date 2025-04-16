@@ -1,0 +1,56 @@
+{% extends 'accounts/base.html' %} {% block content %}
+<!-- Start Customer page -->
+<div class="customer content">
+  <div class="container">
+    <div class="info">
+      <div class="actions card">
+        <h3 class="title">Customer</h3>
+        <hr />
+        <a class="btn update" href="">Update</a>
+        <a class="btn delete" href="">Delete</a>
+      </div>
+      <div class="contact card">
+        <h3 class="title">Contact Information</h3>
+        <hr />
+        <div>Email : {{customer.email | default:'no information' }}</div>
+        <div>Phone : {{customer.phone | default:'no information' }}</div>
+      </div>
+      <div class="orders card">
+        <h3 class="title">Total Orders</h3>
+        <hr />
+        <div class="total-orders">{{orders | length}}</div>
+      </div>
+    </div>
+    <div class="search">
+        <button>Search</button>
+    </div>
+    <div class="products">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>category</th>
+                    <th>Date Orded</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{order.product.name}}</td>
+                    <td>{{order.product.category}}</td>
+                    <td>{{order.date_created}}</td>
+                    <td>{{order.status}}</td>
+                    <td class="update btn"><a href="{% url 'update_order' order.id%}">Update</a></td>
+                    <td class="delete btn"><a href="">Delete</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+<!-- End Customer page -->
+{% endblock %}
