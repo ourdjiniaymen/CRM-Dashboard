@@ -1,0 +1,19 @@
+{% extends 'accounts/base.html' %} {% block content %}
+<!-- Start Signup form -->
+<div class="login">
+  <div class="container">
+    <h3>Login</h3>
+    <h4>Welcome to CRM dashboard</h4>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <label for="text">Username</label>
+      <input type="username" id="username" name="username", placeholder="Username">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Password">
+      <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account yet? <a href="">Create one</a></p>
+  </div>
+</div>
+{% endblock %}
+<!-- End Signup form -->

@@ -1,11 +1,13 @@
-{% extends 'accounts/base.html' %}
-
-{% block content %}
+{% extends 'accounts/base.html' %} {% block content %}
 <!-- Start Order Creation Form -->
-<form action="" method="post">
-    {%csrf_token%}
-    {{order_form}}
-    <input type="submit" value="Submit">
+<form action="" method="POST">
+  {%csrf_token%} {% if order_form %} {{ order_form }} {% endif %} {% if order_formset %} 
+  {{order_formset.management_form }} 
+  {% for form in order_formset %} {{form}}
+  <hr />
+  {% endfor %} {% endif %}
+
+  <input type="submit" value="Submit" />
 </form>
 <!-- Edn Order Creation Form -->
 {% endblock %}

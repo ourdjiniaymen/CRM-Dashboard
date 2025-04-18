@@ -7,7 +7,7 @@
         <h3 class="title">Customer</h3>
         <hr />
         <a class="btn update" href="">Update</a>
-        <a class="btn delete" href="">Delete</a>
+        <a class="btn add-order" href="{% url 'create_order' customer.id %}">Place Order</a>
       </div>
       <div class="contact card">
         <h3 class="title">Contact Information</h3>
@@ -22,7 +22,11 @@
       </div>
     </div>
     <div class="search">
-        <button>Search</button>
+         <form action="" method="get">
+          {{order_filter.form}}
+          <button type="submit">Search</button>
+        
+         </form>
     </div>
     <div class="products">
         <table>
@@ -44,7 +48,7 @@
                     <td>{{order.date_created}}</td>
                     <td>{{order.status}}</td>
                     <td class="update btn"><a href="{% url 'update_order' order.id%}">Update</a></td>
-                    <td class="delete btn"><a href="">Delete</a></td>
+                    <td class="delete btn"><a href="{% url 'delete_order' order.id %}">Delete</a></td>
                 </tr>
                 {%endfor%}
             </tbody>
