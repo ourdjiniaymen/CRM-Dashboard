@@ -3,12 +3,6 @@
 <div class="customer content">
   <div class="container">
     <div class="info">
-      <div class="actions card">
-        <h3 class="title">Customer</h3>
-        <hr />
-        <a class="btn update" href="">Update</a>
-        <a class="btn add-order" href="{% url 'create_order' customer.id %}">Place Order</a>
-      </div>
       <div class="contact card">
         <h3 class="title">Contact Information</h3>
         <hr />
@@ -36,8 +30,6 @@
                     <th>category</th>
                     <th>Date Orded</th>
                     <th>Status</th>
-                    <th>Update</th>
-                    <th>Remove</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,8 +39,6 @@
                     <td>{{order.product.category}}</td>
                     <td>{{order.date_created}}</td>
                     <td>{{order.status}}</td>
-                    <td class="update btn"><a href="{% url 'update_order' order.id%}">Update</a></td>
-                    <td class="delete btn"><a href="{% url 'delete_order' order.id %}">Delete</a></td>
                 </tr>
                 {%endfor%}
             </tbody>

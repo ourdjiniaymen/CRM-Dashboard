@@ -10,7 +10,13 @@
       <ul>
         <li><a href="#">Dashboard</a></li>
         <li><a href="#">Products</a></li>
+        {% if request.user.is_authenticated%}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
       </ul>
+      {% if request.user.is_authenticated%}
+      <div class="user">{{request.user | slice:":1" }}</div>
+      {% endif %}
     </div>
   </div>
 </header>

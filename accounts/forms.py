@@ -18,4 +18,4 @@ class CustomUserCreationForm(UserCreationForm):
     username        = forms.CharField(widget = forms.TextInput(attrs = {'placeholder':'Username'}))
     email           = forms.EmailField(widget = forms.EmailInput(attrs = {'placeholder':'Email'}))
     password1        = forms.CharField(widget = forms.PasswordInput(attrs = {'placeholder':'Password'}))
-    password2        = forms.CharField(widget = forms.PasswordInput(attrs = {'placeholder':'repeat password'}))
+    password2        = forms.CharField(widget = forms.PasswordInput(attrs = {'placeholder':'Repeat password'}))

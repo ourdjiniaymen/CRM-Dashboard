@@ -4,15 +4,37 @@
   <div class="container">
     <h3>Login</h3>
     <h4>Welcome to CRM dashboard</h4>
+    {% if messages %}
+    <div class="flash-messages">
+      {%for message in messages%}
+      <div class="flash-message-{{message.tags}}">{{message}}</div>
+      {%endfor%}
+    </div>
+    {% endif %}
     <form action="" method="POST">
       {% csrf_token %}
       <label for="text">Username</label>
-      <input type="username" id="username" name="username", placeholder="Username">
+      <input
+        type="username"
+        id="username"
+        name="username"
+        ,
+        placeholder="Username"
+        required
+      />
       <label for="password">Password</label>
-      <input type="password" name="password" id="password" placeholder="Password">
-      <input type="submit" value="Login">
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        required
+      />
+      <input type="submit" value="Login" />
     </form>
-    <p>Don't have an account yet? <a href="">Create one</a></p>
+    <p>
+      Don't have an account yet? <a href="{% url 'signup' %}">Create one</a>
+    </p>
   </div>
 </div>
 {% endblock %}

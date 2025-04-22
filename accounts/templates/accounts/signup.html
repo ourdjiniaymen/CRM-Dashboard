@@ -4,16 +4,20 @@
   <div class="container">
     <h3>Sign up now</h3>
     <h4>Create your account</h4>
-    {{signup_form.errors}}
+    {% if signup_form.errors %}
+    <ul class="form-errors">
+      {% for error in signup_form.errors.values %}
+      <li class="form-error">{{error}}</li>
+      {% endfor %}
+    </ul>
+    {%endif %}
     <form action="" method="POST">
-      {% csrf_token %}
-      {% for field in signup_form %}
+      {% csrf_token %} {% for field in signup_form %}
       <label name="{{field.name}}">{{field.label}}</label>
-      {{field}}
-      {%endfor%}
-      <input type="submit" value="Signup">
+      {{field}} {%endfor%}
+      <input type="submit" value="Signup" />
     </form>
-    <p>Already have an account? <a href="">sign in</a></p>
+    <p>Already have an account? <a href="{% url 'login'%}">sign in</a></p>
   </div>
 </div>
 {% endblock %}
